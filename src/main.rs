@@ -5,6 +5,7 @@ use axum::{
 };
 use lambda_http::{run, Error};
 
+mod api;
 mod page;
 
 #[tokio::main]
