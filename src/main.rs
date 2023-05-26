@@ -18,9 +18,16 @@ async fn main() -> Result<(), Error> {
         .without_time()
         .init();
 
+    let config = aws_config::load_from_env().await;
+    aws_sdk_dynamodb::Client::new(&config);
+
+    let api_router = Router::new().route("/pokemon", post(api::handler::add_pokemon::add_pokemon));
+
     let app = Router::new()
         .route("/", get(page::index::page))
-        .route("/_assets/*path", get(handle_assets));
+        .route("/_assets/*path", get(handle_assets))
+        .nest("/api", api_router)
+        .with_state(aws_sdk_dynamodb::Client::new(&config));
 
     run(app).await
 }
