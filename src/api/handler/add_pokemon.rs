@@ -42,7 +42,7 @@ pub async fn add_pokemon(
         p.sprite_url = Some(pokemon.sprites.front_default.unwrap());
 
         let attributes = [
-            ("id", AttributeValue::S(p.id.unwrap().to_string())),
+            ("pk", AttributeValue::S(p.id.unwrap().to_string())),
             ("name", AttributeValue::S(p.name.to_string())),
             ("url", AttributeValue::S(p.url.to_string())),
             (
