@@ -1,0 +1,27 @@
+{
+  "name": "infrastructure",
+  "version": "0.1.0",
+  "bin": {
+    "cdk": "bin/cdk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk deploy --require-approval never"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.15",
+    "aws-cdk": "2.64.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.4"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.64.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.64.0-alpha.0",
+    "aws-cdk-lib": "2.64.0",
+    "cargo-lambda-cdk": "^0.0.3",
+    "constructs": "^10.0.5",
+    "source-map-support": "^0.5.21"
+  },
+  "author": "Mark Strudwick"
+}
